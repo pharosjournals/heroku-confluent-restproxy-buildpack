@@ -11,6 +11,8 @@ The original buildpack was modified to support only the REST proxy.
 
 ## Setup
 
+**NOTE:** The build script depends on the `CONFLUENT_*` config variables outlined below. If they change, you must re-build your Heroku app.
+
 ```bash
 $ heroku create -b https://github.com/pharosjournals/heroku-confluent-restproxy-buildpack.git
 ```
