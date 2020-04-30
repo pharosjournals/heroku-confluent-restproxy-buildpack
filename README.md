@@ -9,6 +9,26 @@ this buildpack.
 
 The original buildpack was modified to support only the REST proxy.
 
+## Configuration
+Create a configuration file that you want to use with the proxy. This is the Kafka configuration that would normally be used in `confluent.properties` (more [here](https://docs.confluent.io/current/kafka-rest/config.html#general)).
+
+Here's an example configuration file that works for standard producer use cases:
+
+```
+id=[ID USED TO REFERENCE THIS CLIENT]
+client.ssl.endpoint.identification.algorithm=https
+client.sasl.mechanism=PLAIN
+bootstrap.servers=[BOOTSTRAP SERVERS]
+client.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="[KEY]" password="[SECRET]";
+client.security.protocol=SASL_SSL
+
+producer.acks=1
+
+port=%PORT%
+```
+
+You will end up base64-encoding the contents of this file for use in the `CONFLUENT_PROPERTIES` config var as described below.
+
 ## Setup
 
 **NOTE:** The build script depends on the `CONFLUENT_*` config variables outlined below. If they change, you must re-build your Heroku app.
