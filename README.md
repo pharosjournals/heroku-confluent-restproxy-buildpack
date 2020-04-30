@@ -20,9 +20,11 @@ by setting both `CONFLUENT_PACKAGE` and `CONFLUENT_VERSION=5.3.1`, and deploying
 makes use of confluent.
 
 ```bash
-$ heroku config:set CONFLUENT_PACKAGE=http://packages.confluent.io/archive/5.3/confluent-5.3.1-2.12.tar.gz
+$ heroku config:set CONFLUENT_PACKAGE=http://packages.confluent.io/archive/5.3/confluent-community-5.3.1-2.12.tar.gz
 $ heroku config:set CONFLUENT_VERSION=5.3.1
 ```
+
+**NOTE**: Be sure to use the community version of confluent as the full version is likely too big for Heroku to build and deploy.
 
 Lastly, set the `CONFLUENT_PROPERTIES` environment variable. This should be the contents you want in the confluent properties  file as a base64-encoded string. Must include an entry for the port to listen on with a value of `%PORT`:
 
