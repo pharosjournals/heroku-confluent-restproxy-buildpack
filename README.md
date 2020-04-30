@@ -12,7 +12,7 @@ The original buildpack was modified to support only the REST proxy.
 ## Setup
 
 ```bash
-$ heroku create -b https://github.com/upsy-co/heroku-confluent-restproxy-buildpack.git
+$ heroku create -b https://github.com/pharosjournals/heroku-confluent-restproxy-buildpack.git
 ```
 
 Now that you have an app, you can download and "install" a version
